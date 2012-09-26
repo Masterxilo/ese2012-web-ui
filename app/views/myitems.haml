@@ -1,0 +1,20 @@
+%h1 Item Trading System - My Items
+%p Logged in as #{@user.name}. <a href="/">Back to main page</a>.
+
+%p Add a new item:
+%form(action = "/add_item" method="POST")
+  %label
+    Name:
+    %input(type='text' name = 'name')
+  %label
+    Price in credits:
+    %input(type='number' name = 'price' min='0' max='9999' step='1' value='10')
+  %input(type='submit' value='Add')
+
+%p Your items:
+%ul
+  - for item in @items
+    %li
+      %p "#{item.name}", #{item.active ? "for sale" : "not for sale"}, #{item.price} credits,
+      <a href="/#{item.active ? "deactivate" : "activate"}/#{item.name}">#{item.active ? "deactivate" : "activate"}</a>,
+      <a href="/delete_item/#{item.name}">delete</a>

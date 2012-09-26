@@ -1,0 +1,13 @@
+%h1 Item Trading System - Main Page
+%p Logged in as <a href="/user/#{@user.name}">#{@user.name}</a>. You have #{@user.credits} credits.
+%form(action = "/logout" method="POST")
+  %input(type='submit' value='Log out')
+
+%p Choose items to buy or <a href="/myitems">view and edit your items</a>.
+
+%p Active items in the system:
+
+%ul
+  - for item in @items
+    %li
+      %p "#{item.name}" sold by <a href="/user/#{item.owner.name}">#{item.owner.name}</a> for #{item.price} credits. <a href="/buy/#{item.name}">Buy this!</a>

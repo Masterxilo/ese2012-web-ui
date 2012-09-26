@@ -1,0 +1,18 @@
+%h1 Item Trading System - Login
+
+%p Login:
+%form(action = "/login" method="POST")
+  %label
+    Name:
+    %input(type='text' name = 'username')
+  %label
+    Password:
+    %input(type='password' name = 'password')
+  %input(type='submit' value='Log in')
+
+%p Register
+%form(action = "/register" method="POST")
+  %label
+    Name:
+    %input(type='text' name = 'name')
+  %input(type='submit' value='Register')

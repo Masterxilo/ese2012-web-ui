@@ -1,0 +1,12 @@
+* Explain how a typical HTTP request is processed with the framework (the request lifecycle)
+
+Determine the verb and request url, search for a 
+<verb> "<request url>" do
+method and execute it, returning whatever string it returned as the result data or the error code if it returns an integer or a redirect if redirect was used.
+
+* Why should GET requests be *idem*potent?
+Because of the meaning of GETting something in the computer science world: You get a copy of what you requested, leaving the system you requested it from unchanged, therefore returning the same result when used multiple times when the system hasn't changed by other means. This is the same with reading files from filesystems etc.
+
+* Where should you format data for rendering?
+In the templates (haml, erb), not in app.rb/the controllers or even the model.
+

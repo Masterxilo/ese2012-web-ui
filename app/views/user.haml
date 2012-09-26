@@ -1,0 +1,7 @@
+%h1 Item Trading System - #{@user.name}'s Items
+<a href="/">Back to main page</a>.
+
+%ul
+  - for item in @items
+    %li
+      %p "#{item.name}", #{item.active ? "for sale for #{item.price} credits, <a href='/buy/#{item.name}'>buy now!</a>" : "not for sale"}
